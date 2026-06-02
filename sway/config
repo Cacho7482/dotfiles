@@ -1,0 +1,84 @@
+# Mod key
+set $mod Mod5
+
+# Terminal
+set $term foot
+
+# Launcher (simple y liviano)
+set $menu wofi --show drun
+
+# Includes
+include ./visuals
+include ./exec
+include ./monitors
+
+# =========================
+# Keybindings básicos
+# =========================
+
+# Terminal
+bindsym $mod+Return exec $term
+
+# Launcher
+bindsym $mod+d exec $menu
+
+# Matar ventana
+bindsym $mod+Shift+q kill
+
+# Reload config
+bindsym $mod+Shift+c reload
+
+# Salir de Sway
+bindsym $mod+Shift+e exec "swaymsg exit"
+
+# Movimiento de foco
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mover ventanas
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+
+# Layout
+bindsym $mod+f fullscreen toggle
+bindsym $mod+space floating toggle
+
+# Screenshots
+#bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+p exec grim -g "$(slurp)" ~/Pictures/$(date +%Y-%m-%d_%H%M%S).png
+
+# Input genérico (opcional)
+input type:keyboard {
+    tap enabled
+    natural_scroll enabled
+    xkb_layout "custom"
+    xkb_variant "pipe_grave"
+}
+
+# Include default configs
+include @sysconfdir@/sway/config.d/*
+exec_always swaybg -i /home/nachopi/Downloads/caelus.jpg -m fill
+
+# Resolucion de PC (modificar para tablet)
+
+#output HDMI-A-1 mode 1920x1080
+output HDMI-A-1 mode 1024x768

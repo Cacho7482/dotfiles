@@ -1,0 +1,2 @@
+# Wallpaper (asegurate que exista)
+output * bg ~/.config/sway/walls/caelus.jpg stretch

@@ -1,0 +1,61 @@
+# Gaps
+gaps inner 2
+gaps outer 2
+
+# Bordes
+default_border pixel 2
+
+# Colores (Dacctal style)
+#client.focused          #ef944d #ef944d #141514 #ef944d #ef944d
+#client.unfocused        #141514 #141514 #888888 #141514 #141514
+#client.focused_inactive #141514 #141514 #cccccc #141514 #141514
+#client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
+
+# GruvBox ColorScheme:
+### Gruvbox
+
+set $light #ebdbb2
+set $dark #3c3836
+set $focused #eadbb2
+set $inactive #282828
+set $unfocused #282828
+set $urgent #b8bb26
+
+    ### Colors (see man 5 sway)
+    # border - border around titlebar
+    # bg - titlebar background
+    # text - text on titlebar
+    # indicator - shown where new window will open
+    # child_border - border around the window
+    # class         border      bg      text    indicator   child_border
+
+client.focused          $focused    $focused    $light   $focused    $focused
+client.focused_inactive $inactive   $inactive   $light   $inactive   $inactive
+client.unfocused        $unfocused  $unfocused  $light  $unfocused  $unfocused
+client.urgent           $urgent     $urgent     $light  $urgent     $urgent
+# Cursor (opcional)
+seat seat0 xcursor_theme Future-dark-cursors 14
+
+# Barra (swaybar nativo → liviano)
+bar {
+   swaybar_command waybar
+    position top
+
+    status_command ~/.config/sway/status.sh
+    
+
+    colors {
+        background #282828
+        statusline #ffffff
+        separator  #888888
+
+        focused_workspace  #ef944d #ef944d #141514
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #141514 #141514 #888888
+        urgent_workspace   #ff0000 #ff0000 #ffffff
+    }
+}
+
+# SwayFX (desactivado)
+# blur enable
+# corner_radius 6
